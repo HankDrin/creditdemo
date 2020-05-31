@@ -1,0 +1,25 @@
+server:
+  servlet:
+    context-path: /credit
+  port: 8090
+
+spring:
+  application:
+    name: credit
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+
+logging:
+  level:
+    root: info
+  file:
+    name: /home/hank/logs/credit/out.log
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+common:
+  database:
+    ip: localhost
+    port: 3306

@@ -1,0 +1,54 @@
+globalConfig:
+  author: xxx
+  open: false
+  idType: INPUT
+  dateType: ONLY_DATE
+  enableCache: false
+  activeRecord: false
+  baseResultMap: true
+  baseColumnList: true
+  swagger2: false
+  fileOverride: true
+  entityName: '%sDO'
+  controllerName: 'UserController'
+dataSourceConfig:
+  url: jdbc:mysql://localhost:3306/test?useUnicode=true&useSSL=false&characterEncoding=utf8
+  driverName: com.mysql.cj.jdbc.Driver
+  username: root
+  password: root
+defaultPackageConfig:
+  parent: com.creditdemo
+#  moduleName: user
+  entity: dal.model.user
+  service: biz.user
+  serviceImpl: biz.user.impl
+  mapper: dal.dao.user
+  xml: mapper
+  controller: channel.user
+  controllerModule: user
+  pathInfo:
+    entity_path: src/main/java/com/creditdemo/dal/model/user
+    service_path: ../credit-biz/src/main/java/com/creditdemo/biz/user
+    service_impl_path: ../credit-biz/src/main/java/com/creditdemo/biz/user/impl
+    mapper_path: src/main/java/com/creditdemo/dal/dao/user
+    xml_path: src/main/resources/com/creditdemo/dal/mapper/user
+    controller_path: ../credit-channel/src/main/java/com/creditdemo/channel/user
+strategyConfig:
+  naming: underline_to_camel
+  columnNaming: underline_to_camel
+  entityLombokModel: true
+  superEntityClass: com.creditdemo.dal.model.BaseEntity
+  superMapperClass: com.baomidou.mybatisplus.core.mapper.BaseMapper
+  superServiceClass: com.baomidou.mybatisplus.extension.service.IService
+  superServiceImplClass: com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+  superEntityColumns:
+    - id
+    - deleted
+    - create_time
+    - update_time
+  controllerMappingHyphenStyle: true
+  entityTableFieldAnnotationEnable: true
+  restControllerStyle: true
+  tablePrefix:
+  include:
+    - user_base_info
