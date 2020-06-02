@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class DefaultPackageConfig extends PackageConfig {
     /**
-     * 父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+     * Controller模块名
      */
     private String controllerModule = "";
 
