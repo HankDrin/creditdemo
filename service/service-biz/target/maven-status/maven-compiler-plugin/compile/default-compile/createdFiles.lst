@@ -1,0 +1,4 @@
+com/plat/biz/user/IUserBaseInfoService.class
+com/plat/biz/user/impl/UserBizServiceImpl.class
+com/plat/biz/user/IUserBizService.class
+com/plat/biz/user/impl/UserBaseInfoServiceImpl.class

@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${common.database.ip}:${common.database.port}/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 5
+      min-idle: 5
+      filters: conn,config,stat,slf4j

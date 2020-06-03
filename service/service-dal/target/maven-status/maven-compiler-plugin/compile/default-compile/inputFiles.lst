@@ -1,0 +1,6 @@
+/home/hank/code/demo-parent/service/service-dal/src/main/java/com/plat/dal/model/user/UserBaseInfoDO.java
+/home/hank/code/demo-parent/service/service-dal/src/main/java/com/plat/dal/dao/user/UserBaseInfoMapper.java
+/home/hank/code/demo-parent/service/service-dal/src/main/java/com/plat/dal/conf/DataSourceConfiguration.java
+/home/hank/code/demo-parent/service/service-dal/src/main/java/com/plat/dal/conf/MybatisPlusConfig.java
+/home/hank/code/demo-parent/service/service-dal/src/main/java/com/plat/dal/model/BaseEntity.java
+/home/hank/code/demo-parent/service/service-dal/src/main/java/com/plat/dal/conf/YamlPropertyResourceFactory.java
