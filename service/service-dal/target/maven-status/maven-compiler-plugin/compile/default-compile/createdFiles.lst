@@ -1,6 +1,0 @@
-com/plat/dal/model/user/UserBaseInfoDO.class
-com/plat/dal/conf/MybatisPlusConfig.class
-com/plat/dal/conf/DataSourceConfiguration.class
-com/plat/dal/model/BaseEntity.class
-com/plat/dal/conf/YamlPropertyResourceFactory.class
-com/plat/dal/dao/user/UserBaseInfoMapper.class

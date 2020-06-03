@@ -11,6 +11,7 @@
     <packaging>jar</packaging>
 
     <artifactId>service-biz</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <service.version>0.0.1-SNAPSHOT</service.version>
@@ -19,17 +20,17 @@
     <dependencies>
         <dependency>
             <groupId>com.service</groupId>
-            <artifactId>credit-core</artifactId>
+            <artifactId>service-core</artifactId>
             <version>${service.version}</version>
         </dependency>
         <dependency>
             <groupId>com.service</groupId>
-            <artifactId>credit-dal</artifactId>
+            <artifactId>service-dal</artifactId>
             <version>${service.version}</version>
         </dependency>
         <dependency>
             <groupId>com.service</groupId>
-            <artifactId>credit-common</artifactId>
+            <artifactId>service-common</artifactId>
             <version>${service.version}</version>
         </dependency>
     </dependencies>

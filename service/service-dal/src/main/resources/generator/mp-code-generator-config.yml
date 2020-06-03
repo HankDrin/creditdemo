@@ -51,4 +51,3 @@ strategyConfig:
   restControllerStyle: true
   tablePrefix:
   include:
-    - user_base_info
