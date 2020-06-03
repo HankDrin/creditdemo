@@ -1,4 +1,4 @@
-package com.service.common.aspect.log;
+package com.service.common.annotation;
 
 import com.service.common.enums.log.LogLevelEnum;
 
@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CreditAutoLog {
+public @interface PrintLog {
 
     /**
      * 日志级别， 默认INFO

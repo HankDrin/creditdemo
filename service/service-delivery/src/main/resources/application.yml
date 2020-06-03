@@ -20,7 +20,7 @@ logging:
   level:
     root: info
   file:
-    name: /home/hank/logs/credit/out.log
+    name: /home/hank/logs/service/out.log
 
 mybatis-plus:
   configuration:

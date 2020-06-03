@@ -7,7 +7,7 @@
  * conditions stipulated in the agreement/contract under which the
  * program(s) have been supplied.
  *----------------------------------------------------------------------------*/
-package com.plat.dal.conf;
+package com.service.dal.conf;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
  * MybatisPlusConfig
  */
 @Configuration
-@MapperScan("com.creditdemo.dal.dao.*")
+@MapperScan("com.service.dal.dao.*")
 public class MybatisPlusConfig {
 
     /**

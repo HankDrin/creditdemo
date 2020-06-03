@@ -6,6 +6,8 @@ import com.service.common.tool.jackson.SnakeCaseKeySerializer;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.DefaultParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
 
 import java.util.Map;
 
@@ -30,5 +32,10 @@ public class WebMvcConfig {
         simpleModule.addKeySerializer(String.class, new SnakeCaseKeySerializer());
         simpleModule.addDeserializer(Map.class, new SnakeCaseDeserializer());
         return simpleModule;
+    }
+
+    @Bean
+    public ParameterNameDiscoverer getParameterNameDiscoverer(){
+        return new DefaultParameterNameDiscoverer();
     }
 }

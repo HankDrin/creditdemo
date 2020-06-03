@@ -2,6 +2,7 @@ package com.service.biz.user.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.service.biz.user.IUserBizService;
+import com.service.common.annotation.PrintLog;
 import com.service.core.user.IUserCoreService;
 import com.service.dal.dao.user.UserBaseInfoMapper;
 import com.service.dal.model.user.UserBaseInfoDO;
@@ -38,6 +39,7 @@ public class UserBizServiceImpl implements IUserBizService {
      * @return 登记结果
      */
     @Override
+    @PrintLog
     public boolean realNameRegister(String userName, String mobileNo, Integer idType, String idNo) {
         log.info("开始用户实名登记: {}", userName);
         return userCoreService.realNameRegister(userName, mobileNo, idType, idNo);
@@ -50,6 +52,7 @@ public class UserBizServiceImpl implements IUserBizService {
      * @return
      */
     @Override
+    @PrintLog
     public UserBaseInfoDO getBySubuserNo(String subuserNo) {
         UserBaseInfoDO condition = new UserBaseInfoDO().setSubuserNo(subuserNo);
         QueryWrapper<UserBaseInfoDO> wrapper = new QueryWrapper<>(condition);
@@ -64,6 +67,7 @@ public class UserBizServiceImpl implements IUserBizService {
      * @return
      */
     @Override
+    @PrintLog
     public boolean delBySubuserNo(String subuserNo) {
         QueryWrapper<UserBaseInfoDO> wrapper = new QueryWrapper<>();
         wrapper.eq("subuser_no", subuserNo);

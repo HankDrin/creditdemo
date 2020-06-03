@@ -1,5 +1,6 @@
 package com.service.core.user.impl;
 
+import com.service.common.annotation.PrintLog;
 import com.service.core.user.IUserCoreService;
 import com.service.dal.model.user.UserBaseInfoDO;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,7 @@ public class UserCoreServiceImpl implements IUserCoreService {
      * @return 登记结果
      */
     @Override
+    @PrintLog
     public boolean realNameRegister(String userName, String mobileNo, Integer idType, String idNo) {
         UserBaseInfoDO userBaseInfo = new UserBaseInfoDO();
         userBaseInfo.setSubuserNo("123")

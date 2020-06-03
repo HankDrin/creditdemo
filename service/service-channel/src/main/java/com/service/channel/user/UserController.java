@@ -7,6 +7,7 @@ import com.service.biz.user.IUserBaseInfoService;
 import com.service.biz.user.IUserBizService;
 import com.service.channel.base.ResultModel;
 import com.service.channel.user.dto.UserDTO;
+import com.service.common.annotation.PrintLog;
 import com.service.dal.model.user.UserBaseInfoDO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,23 +32,26 @@ public class UserController {
     private IUserBaseInfoService userBaseInfoService;
 
     @PostMapping("/register/realName")
+    @PrintLog
     public Object registerUserRealName(@RequestBody UserDTO userDTO) {
-        log.info("接入用户实名请求: {}", userDTO);
         return userBizService
                 .realNameRegister(userDTO.getUserName(), userDTO.getMobileNo(), userDTO.getIdType(), userDTO.getIdNo());
     }
 
     @GetMapping("/listAll")
+    @PrintLog
     public Object listAllUser() {
         return new UserBaseInfoDO().selectAll();
     }
 
     @GetMapping("/get/{subuserNo}")
+    @PrintLog
     public Object getBySubuserNo(@PathVariable String subuserNo) {
         return ResultModel.buildSuccessResult(userBizService.getBySubuserNo(subuserNo));
     }
 
     @PostMapping("del")
+    @PrintLog
     public Object deleteUser(@RequestParam("subuser_no") String subuserNo) {
         return userBizService.delBySubuserNo(subuserNo);
     }
