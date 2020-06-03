@@ -7,14 +7,14 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication(scanBasePackages = { "com.creditdemo" }, exclude= { DataSourceAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = { "com.plat" }, exclude= { DataSourceAutoConfiguration.class})
 @EnableEurekaClient
 @EnableDiscoveryClient
 @EnableFeignClients
-public class CreditFeignApplication {
+public class FeignApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CreditFeignApplication.class, args);
+        SpringApplication.run(FeignApplication.class, args);
     }
 
 }
