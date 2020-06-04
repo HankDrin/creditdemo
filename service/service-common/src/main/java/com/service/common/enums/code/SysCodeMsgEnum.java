@@ -6,8 +6,6 @@ import lombok.Getter;
 /**
  * 系统编码枚举类
  *
- * @auther 20314@etransfar.com(zhangbin)
- * @CreateDate 2018年9月3日 下午5:35:40
  */
 @Getter
 @AllArgsConstructor
@@ -23,7 +21,35 @@ public enum SysCodeMsgEnum {
     /**
      * 系统异常
      */
-    SYS_ERROR("GP_050998", "系统异常");
+    SYS_ERROR("GP_050998", "系统异常"),
+    /**
+     * 请求报文签名未通过验证
+     */
+    INVALID_SIGN("GP_050001", "请求报文签名未通过验证"),
+    /**
+     * 您没有该接口服务的权限
+     */
+    PERMISSION_DENY("GP_050002", "您没有该接口服务的权限"),
+    /**
+     * 请求报文参数有误， {param}填具体有问题的参数名称
+     */
+    INVALID_PARAM("GP_050003", "请求报文{param}参数有误"),
+    /**
+     * 参数绑定异常
+     */
+    PARAMETERS_BIND_ERROR("GP_050006", "参数绑定错误"),
+    /**
+     * 参数校验错误
+     */
+    PARAMETERS_VALID_ERROR("GP_050007", "参数校验错误"),
+    /**
+     * 类型转换错误
+     */
+    CLASS_CAST_ERROR("GP_050008", "类型转换错误"),
+    /**
+     * 类型转换错误
+     */
+    NUMBER_FORMAT_ERROR("GP_050009", "数值类型转换错误");
 
     /**
      * 编码CODE
