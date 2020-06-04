@@ -20,8 +20,6 @@ import java.nio.charset.StandardCharsets;
  * 接口接入下划线转驼峰
  * 接口返回驼峰转下划线
  *
- * @author chenhongding
- * @since 2020-06-01.
  */
 public class ResultModelWrapperConverter extends AbstractHttpMessageConverter<Object> {
 

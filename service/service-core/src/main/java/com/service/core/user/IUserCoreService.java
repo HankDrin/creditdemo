@@ -3,8 +3,6 @@ package com.service.core.user;
 /**
  * 用户核心服务
  *
- * @author chenhongding
- * @since 2020-05-31.
  */
 public interface IUserCoreService {
 

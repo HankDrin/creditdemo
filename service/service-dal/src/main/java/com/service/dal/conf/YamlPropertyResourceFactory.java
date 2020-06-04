@@ -14,8 +14,6 @@ import java.util.Properties;
 /**
  * YAML配置文件读取工厂类
  *
- * @author chenhongding
- * @since 2020-06-01.
  */
 public class YamlPropertyResourceFactory implements PropertySourceFactory {
 

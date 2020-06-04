@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 /**
  * 用户核心服务
  *
- * @author chenhongding
- * @since 2020-05-31.
  */
 @Component
 public class UserCoreServiceImpl implements IUserCoreService {
