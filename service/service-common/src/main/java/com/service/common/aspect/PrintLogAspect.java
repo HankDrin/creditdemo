@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 系统脱敏日志打印
+ * 系统方法日志打印
  *
  */
 @Aspect

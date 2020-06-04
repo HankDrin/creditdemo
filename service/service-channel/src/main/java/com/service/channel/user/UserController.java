@@ -11,6 +11,7 @@ import com.service.common.annotation.PrintLog;
 import com.service.dal.model.user.UserBaseInfoDO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -33,7 +34,7 @@ public class UserController {
 
     @PostMapping("/register/realName")
     @PrintLog
-    public Object registerUserRealName(@RequestBody UserDTO userDTO) {
+    public Object registerUserRealName(@RequestBody @Validated UserDTO userDTO) {
         return userBizService
                 .realNameRegister(userDTO.getUserName(), userDTO.getMobileNo(), userDTO.getIdType(), userDTO.getIdNo());
     }

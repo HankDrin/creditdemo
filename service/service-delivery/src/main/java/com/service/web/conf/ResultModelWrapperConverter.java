@@ -1,7 +1,7 @@
 package com.service.web.conf;
 
-import com.service.channel.base.ResultModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.service.channel.base.ResultModel;
 import com.service.common.enums.code.SysCodeMsgEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpInputMessage;
@@ -48,14 +48,16 @@ public class ResultModelWrapperConverter extends AbstractHttpMessageConverter<Ob
     @Override
     protected void writeInternal(Object o, HttpOutputMessage outputMessage)
             throws IOException, HttpMessageNotWritableException {
+        ResultModel result;
         if (o instanceof ResultModel) {
-            return ;
+            result = (ResultModel)o;
+        } else {
+            result = new ResultModel();
+            result.setBizCode(SysCodeMsgEnum.SUCCESS.getCode());
+            result.setBizMsg(SysCodeMsgEnum.SUCCESS.getMsg());
+            result.setData(o);
         }
 
-        ResultModel result = new ResultModel();
-        result.setBizCode(SysCodeMsgEnum.SUCCESS.getCode());
-        result.setBizMsg(SysCodeMsgEnum.SUCCESS.getMsg());
-        result.setData(o);
         OutputStream out = outputMessage.getBody();
         out.write(jacksonObjectMapper.writeValueAsString(result).getBytes(StandardCharsets.UTF_8));
         out.flush();
