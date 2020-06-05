@@ -45,7 +45,6 @@ public class UserAuthController {
     }
 
     @PostMapping("/login")
-    @PrintLog
     public Object login(@RequestBody @Validated(LoginValidGroup.class) UserDTO userDTO, HttpServletResponse response) {
         AuthObject authObject = userBizService.login(userDTO);
         response.addCookie(makeCookie(SysConstants.TOKEN_NAME, authObject.getToken()));
