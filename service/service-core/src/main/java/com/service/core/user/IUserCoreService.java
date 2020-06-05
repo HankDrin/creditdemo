@@ -1,20 +1,22 @@
 package com.service.core.user;
 
+import com.service.dal.model.user.UserBaseInfoDO;
+
 /**
  * 用户核心服务
  *
  */
 public interface IUserCoreService {
 
+//    boolean realNameRegister(UserBaseInfoDO userBaseInfo);
+
     /**
-     * 用户实名登记
+     * 根据证件信息查询用户信息
      *
-     * @param userName 用户名
-     * @param mobileNo 手机号
-     * @param idType   证件类型
-     * @param idNo     证件号
-     * @return 登记结果
+     * @param idType 证件类型
+     * @param idNo   身份证
+     * @return 用户信息
      */
-    boolean realNameRegister(String userName, String mobileNo, Integer idType, String idNo);
+    UserBaseInfoDO getByIdNo(Integer idType, String idNo);
 
 }

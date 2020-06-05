@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author xxx
- * @since 2020-06-01
+ * @since 2020-06-04
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -55,6 +55,12 @@ public class UserBaseInfoDO extends BaseEntity {
      */
     @TableField("mobile_no")
     private String mobileNo;
+
+    /**
+     * 用户登陆密码
+     */
+    @TableField("password")
+    private String password;
 
 
 }

@@ -1,6 +1,9 @@
 package com.service.biz.user;
 
+import com.service.biz.user.dto.UserDTO;
+import com.service.common.security.AuthObject;
 import com.service.dal.model.user.UserBaseInfoDO;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * 用户模块业务服务
@@ -8,18 +11,23 @@ import com.service.dal.model.user.UserBaseInfoDO;
  * @author chenhongding
  * @since 2020-05-31.
  */
-public interface IUserBizService {
+public interface IUserBizService extends UserDetailsService {
 
     /**
-     * 用户实名登记
+     * 用户实名注册
      *
-     * @param userName 用户名
-     * @param mobileNo 手机号
-     * @param idType   证件类型
-     * @param idNo     证件号
+     * @param user 用户注册信息
      * @return 登记结果
      */
-    boolean realNameRegister(String userName, String mobileNo, Integer idType, String idNo);
+    UserBaseInfoDO register(UserDTO user);
+
+    /**
+     * 用户登陆
+     *
+     * @param user 用户登陆信息
+     * @return 登陆认证对象
+     */
+    AuthObject login(UserDTO user);
 
     /**
      * 根据会员号取用户信息

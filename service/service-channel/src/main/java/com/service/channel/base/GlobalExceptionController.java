@@ -27,6 +27,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import java.nio.file.AccessDeniedException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -191,6 +192,8 @@ public class GlobalExceptionController extends AbstractErrorController {
             // 类型转换异常
             return ResultModel.buildErrorResult(SysCodeMsgEnum.CLASS_CAST_ERROR.getCode(),
                     SysCodeMsgEnum.CLASS_CAST_ERROR.getMsg());
+        } else if (e instanceof AccessDeniedException) {
+            return ResultModel.buildErrorResult(BizCodeMsgEnum.USER_NOT_LOGIN.getCode(), e.getMessage());
         }
         log.warn(String.format("unchecked exception. request uri: %s", request.getRequestURI()), e);
         return ResultModel.buildErrorResult(SysCodeMsgEnum.SYS_ERROR.getCode(), SysCodeMsgEnum.SYS_ERROR.getMsg());

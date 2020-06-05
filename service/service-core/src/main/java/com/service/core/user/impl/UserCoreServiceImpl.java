@@ -1,8 +1,11 @@
 package com.service.core.user.impl;
 
-import com.service.common.annotation.PrintLog;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.service.core.user.IUserCoreService;
+import com.service.dal.dao.user.UserBaseInfoMapper;
 import com.service.dal.model.user.UserBaseInfoDO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,24 +15,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserCoreServiceImpl implements IUserCoreService {
 
-    /**
-     * 用户实名登记
-     *
-     * @param userName 用户名
-     * @param mobileNo 手机号
-     * @param idType   证件类型
-     * @param idNo     证件号
-     * @return 登记结果
-     */
+    @Autowired
+    private UserBaseInfoMapper userBaseInfoMapper;
+
+    //    @Override
+//    @PrintLog
+//    public boolean realNameRegister(UserBaseInfoDO userBaseInfo) {
+//        return userBaseInfo.insert();
+//    }
+
     @Override
-    @PrintLog
-    public boolean realNameRegister(String userName, String mobileNo, Integer idType, String idNo) {
-        UserBaseInfoDO userBaseInfo = new UserBaseInfoDO();
-        userBaseInfo.setSubuserNo("123")
-                    .setUserName(userName)
-                    .setMobileNo(mobileNo)
-                    .setIdType(idType)
-                    .setIdNo(idNo);
-        return userBaseInfo.insert();
+    public UserBaseInfoDO getByIdNo(Integer idType, String idNo) {
+        LambdaQueryWrapper<UserBaseInfoDO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+        lambdaQueryWrapper.eq(UserBaseInfoDO::getIdType, idType)
+                          .eq(UserBaseInfoDO::getIdNo, idNo);
+        return userBaseInfoMapper.selectOne(lambdaQueryWrapper);
     }
+
 }

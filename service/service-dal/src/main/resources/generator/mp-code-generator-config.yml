@@ -17,7 +17,7 @@ dataSourceConfig:
   username: root
   password: root
 defaultPackageConfig:
-  parent: com.creditdemo
+  parent: com.service
 #  moduleName: user
   entity: dal.model.user
   service: biz.user
@@ -27,17 +27,17 @@ defaultPackageConfig:
   controller: channel.user
   controllerModule: user
   pathInfo:
-    entity_path: src/main/java/com/creditdemo/dal/model/user
-    service_path: ../credit-biz/src/main/java/com/creditdemo/biz/user
-    service_impl_path: ../credit-biz/src/main/java/com/creditdemo/biz/user/impl
-    mapper_path: src/main/java/com/creditdemo/dal/dao/user
-    xml_path: src/main/resources/com/creditdemo/dal/mapper/user
-    controller_path: ../credit-channel/src/main/java/com/creditdemo/channel/user
+    entity_path: src/main/java/com/service/dal/model/user
+#    service_path: ../service-biz/src/main/java/com/service/biz/user
+#    service_impl_path: ../service-biz/src/main/java/com/service/biz/user/impl
+#    mapper_path: src/main/java/com/service/dal/dao/user
+#    xml_path: src/main/resources/com/service/dal/mapper/user
+#    controller_path: ../service-channel/src/main/java/com/service/channel/user
 strategyConfig:
   naming: underline_to_camel
   columnNaming: underline_to_camel
   entityLombokModel: true
-  superEntityClass: com.creditdemo.dal.model.BaseEntity
+  superEntityClass: com.service.dal.model.BaseEntity
   superMapperClass: com.baomidou.mybatisplus.core.mapper.BaseMapper
   superServiceClass: com.baomidou.mybatisplus.extension.service.IService
   superServiceImplClass: com.baomidou.mybatisplus.extension.service.impl.ServiceImpl

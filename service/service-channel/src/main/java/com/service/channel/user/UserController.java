@@ -6,12 +6,10 @@ package com.service.channel.user;
 import com.service.biz.user.IUserBaseInfoService;
 import com.service.biz.user.IUserBizService;
 import com.service.channel.base.ResultModel;
-import com.service.channel.user.dto.UserDTO;
 import com.service.common.annotation.PrintLog;
 import com.service.dal.model.user.UserBaseInfoDO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -32,12 +30,12 @@ public class UserController {
     @Autowired
     private IUserBaseInfoService userBaseInfoService;
 
-    @PostMapping("/register/realName")
-    @PrintLog
-    public Object registerUserRealName(@RequestBody @Validated UserDTO userDTO) {
-        return userBizService
-                .realNameRegister(userDTO.getUserName(), userDTO.getMobileNo(), userDTO.getIdType(), userDTO.getIdNo());
-    }
+//    @PostMapping("/register/realName")
+//    @PrintLog
+//    public Object registerUserRealName(@RequestBody @Validated UserDTO userDTO) {
+//        return userBizService
+//                .realNameRegister(userDTO.getUserName(), userDTO.getMobileNo(), userDTO.getIdType(), userDTO.getIdNo());
+//    }
 
     @GetMapping("/listAll")
     @PrintLog

@@ -1,5 +1,6 @@
 package com.service.common.exception;
 
+import com.service.common.enums.code.BizCodeMsgEnum;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -43,4 +44,8 @@ public class ApplicationException extends RuntimeException {
         this.errorMsg = errorMsg;
     }
 
+    public ApplicationException(BizCodeMsgEnum bizCodeMsgEnum) {
+        this.errorCode = bizCodeMsgEnum.getCode();
+        this.errorMsg = bizCodeMsgEnum.getMsg();
+    }
 }
