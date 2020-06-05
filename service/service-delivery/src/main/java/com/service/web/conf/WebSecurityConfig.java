@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -33,6 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private String[] anonymous;
 
     @Autowired
+    private RedisTemplate<Object, Object> redisTemplate;
+
+    @Autowired
     private IUserBizService userBizService;
 
     @Autowired
@@ -52,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .exceptionHandling().authenticationEntryPoint(defaultAuthenticationEntryPoint)
             .and()
-            .addFilterBefore(new ServiceAuthFilter(tokenService(), anonymous), SessionManagementFilter.class)
+            .addFilterBefore(new ServiceAuthFilter(tokenService(), redisTemplate, anonymous), SessionManagementFilter.class)
             .headers().cacheControl().disable()
             .and()
             .formLogin()
