@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.service.common.constant.SysConstants;
 import com.service.common.security.AuthObject;
 import com.service.common.security.PasswordAuthToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,8 +40,9 @@ public class ServiceAuthFilter extends OncePerRequestFilter {
 
     private RedisTemplate<Object, Object> redisTemplate;
 
-    public ServiceAuthFilter(TokenService tokenService, String... ignorePaths) {
+    public ServiceAuthFilter(TokenService tokenService, RedisTemplate<Object, Object> redisTemplate, String... ignorePaths) {
         this.tokenService = tokenService;
+        this.redisTemplate = redisTemplate;
         this.ignorePaths = Lists.newArrayList(ignorePaths);
     }
 
@@ -75,7 +75,7 @@ public class ServiceAuthFilter extends OncePerRequestFilter {
             throw new AccessDeniedException("您的账号已超时，请重新登录！");
         }
         AuthObject authObject = (AuthObject) redisTemplate.opsForHash().get("user", token.getExtendedInformation());
-        PasswordAuthToken passwordAuthToken = new PasswordAuthToken(authObject, null);
+        PasswordAuthToken passwordAuthToken = new PasswordAuthToken(null, authObject);
         SecurityContextHolder.getContext().setAuthentication(passwordAuthToken);
 
         filterChain.doFilter(request,response);
